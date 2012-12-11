@@ -1,0 +1,39 @@
+#N canvas 33 56 669 429 10;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array Waveform 100 float 3;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0;
+#X coords 0 1 99 -1 200 140 1;
+#X restore 391 95 graph;
+#X obj 42 62 mtof;
+#X obj 45 38 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 42 88 osc~;
+#X obj 190 62 mtof;
+#X obj 193 38 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 190 88 phasor~;
+#X obj 103 192 *~;
+#X obj 103 242 *~;
+#X obj 121 220 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 102 344 dac~;
+#X obj 171 301 tabwrite~ Waveform;
+#X obj 170 252 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 171 274 metro 100;
+#X connect 1 0 3 0;
+#X connect 2 0 1 0;
+#X connect 3 0 7 0;
+#X connect 4 0 6 0;
+#X connect 5 0 4 0;
+#X connect 6 0 7 1;
+#X connect 7 0 8 0;
+#X connect 8 0 10 0;
+#X connect 8 0 10 1;
+#X connect 8 0 11 0;
+#X connect 9 0 8 1;
+#X connect 12 0 13 0;
+#X connect 13 0 11 0;

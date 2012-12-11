@@ -1,0 +1,149 @@
+#N canvas 33 56 1074 859 10;
+#X obj 27 159 print;
+#X msg 27 128 Hello World;
+#X msg 27 99 bang;
+#X msg 159 25 2;
+#X obj 160 121 + 3;
+#X floatatom 160 152 5 0 0 0 - - -;
+#X floatatom 230 29 5 0 0 0 - - -;
+#X obj 467 393 dac~;
+#X obj 467 131 osc~ 440;
+#X obj 467 45 mtof;
+#X obj 470 20 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 467 180 *~;
+#X obj 485 157 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 660 71 5 0 0 0 - - -;
+#X msg 174 52 bang;
+#X obj 26 61 print Hello World!;
+#X msg 26 28 bang;
+#X msg 314 28 bang;
+#X obj 317 87 f;
+#X floatatom 317 151 5 0 0 0 - - -;
+#X obj 364 88 + 1;
+#X obj 358 51 metro 1000;
+#X obj 358 11 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 643 108 phasor~ 440;
+#X obj 614 265 *~;
+#X obj 632 233 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 857 124 phasor~ 440;
+#X obj 857 213 *~;
+#X obj 875 190 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 468 352 +~;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array Waveform 100 float 3;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0;
+#X coords 0 1 99 -1 200 140 1;
+#X restore 763 529 graph;
+#X obj 549 394 tabwrite~ Waveform;
+#X obj 548 345 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 549 367 metro 100;
+#X obj 857 154 expr~ ($v1 > 0.5) * 2 - 1;
+#X obj 682 133 *~ -1;
+#X obj 683 156 +~ 1;
+#X obj 646 176 min~;
+#X obj 619 202 -~ 0.25;
+#X obj 581 241 *~ 4;
+#X obj 46 509 mtof;
+#X obj 49 485 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 46 535 osc~;
+#X obj 194 509 mtof;
+#X obj 197 485 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 194 535 phasor~;
+#X obj 107 639 *~;
+#X obj 107 689 *~;
+#X obj 125 667 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 106 791 dac~;
+#X obj 175 748 tabwrite~ Waveform;
+#X obj 174 699 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 175 721 metro 100;
+#X obj 424 480 adc~;
+#X obj 441 540 mtof;
+#X obj 444 517 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 441 566 osc~;
+#X obj 426 610 *~;
+#X obj 487 723 tabwrite~ Waveform;
+#X obj 486 674 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 487 696 metro 100;
+#X obj 426 762 dac~;
+#X obj 426 668 *~;
+#X obj 444 640 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X connect 1 0 0 0;
+#X connect 2 0 1 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 6 0 4 1;
+#X connect 6 0 14 0;
+#X connect 8 0 11 0;
+#X connect 9 0 13 0;
+#X connect 9 0 8 0;
+#X connect 9 0 23 0;
+#X connect 9 0 26 0;
+#X connect 10 0 9 0;
+#X connect 11 0 29 0;
+#X connect 12 0 11 1;
+#X connect 14 0 4 0;
+#X connect 16 0 15 0;
+#X connect 17 0 18 0;
+#X connect 18 0 19 0;
+#X connect 18 0 20 0;
+#X connect 20 0 18 1;
+#X connect 21 0 18 0;
+#X connect 22 0 21 0;
+#X connect 23 0 35 0;
+#X connect 23 0 37 0;
+#X connect 24 0 29 0;
+#X connect 25 0 24 1;
+#X connect 26 0 34 0;
+#X connect 27 0 29 0;
+#X connect 28 0 27 1;
+#X connect 29 0 7 0;
+#X connect 29 0 7 1;
+#X connect 29 0 31 0;
+#X connect 32 0 33 0;
+#X connect 33 0 31 0;
+#X connect 34 0 27 0;
+#X connect 35 0 36 0;
+#X connect 36 0 37 1;
+#X connect 37 0 38 0;
+#X connect 38 0 39 0;
+#X connect 39 0 24 0;
+#X connect 40 0 42 0;
+#X connect 41 0 40 0;
+#X connect 42 0 46 0;
+#X connect 43 0 45 0;
+#X connect 44 0 43 0;
+#X connect 45 0 46 1;
+#X connect 46 0 47 0;
+#X connect 47 0 49 0;
+#X connect 47 0 49 1;
+#X connect 47 0 50 0;
+#X connect 48 0 47 1;
+#X connect 51 0 52 0;
+#X connect 52 0 50 0;
+#X connect 53 0 57 0;
+#X connect 54 0 56 0;
+#X connect 55 0 54 0;
+#X connect 56 0 57 1;
+#X connect 57 0 62 0;
+#X connect 59 0 60 0;
+#X connect 60 0 58 0;
+#X connect 62 0 58 0;
+#X connect 62 0 61 1;
+#X connect 62 0 61 0;
+#X connect 63 0 62 1;
